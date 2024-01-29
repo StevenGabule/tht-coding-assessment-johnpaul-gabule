@@ -25,7 +25,7 @@ class ProductResource extends JsonResource
             'excerpt' => $this->excerpt,
             'unit' => $this->unit,
             'is_active' => $this->is_active,
-            'category_ids' => DB::table('categories')->whereIn('id', explode(',', $this->category_ids))->get(),
+            'category_ids' => $this->product_categories(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

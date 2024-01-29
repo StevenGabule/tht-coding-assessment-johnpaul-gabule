@@ -10,4 +10,8 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug', 'code', 'description', 'excerpt', 'unit', 'is_active', 'category_ids'];
+
+    public function product_categories() {
+        return Category::whereIn('id', explode(',', $this->category_ids))->get();
+    }
 }
