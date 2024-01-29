@@ -47,7 +47,7 @@ class AuthController extends Controller
             }
 
             $authUser = Auth::user();
-            $data['token'] = $authUser->createToken(env('APP_NAME'))->plainTextToken;
+            $data['token'] = $authUser->createToken(env('APP_NAME', 'CodingChallenge'))->plainTextToken;
             $data['name'] = $authUser->name;
             return response()->json([
                 'message' => 'Welcome to ' . env('APP_NAME'),
